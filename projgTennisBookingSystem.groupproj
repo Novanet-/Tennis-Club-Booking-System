@@ -1,0 +1,44 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{acc94675-f712-463f-b5c8-01eada817368}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Projects Include="GlobalSubroutines.dproj" />
+    <Projects Include="TennisBookingSystem.dproj" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Default.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+<BorlandProject xmlns=""><Default.Personality></Default.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Target Name="TennisBookingSystem">
+    <MSBuild Projects="TennisBookingSystem.dproj" Targets="" />
+  </Target>
+  <Target Name="TennisBookingSystem:Clean">
+    <MSBuild Projects="TennisBookingSystem.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="TennisBookingSystem:Make">
+    <MSBuild Projects="TennisBookingSystem.dproj" Targets="Make" />
+  </Target>
+  <Target Name="GlobalSubroutines">
+    <MSBuild Projects="GlobalSubroutines.dproj" Targets="" />
+  </Target>
+  <Target Name="GlobalSubroutines:Clean">
+    <MSBuild Projects="GlobalSubroutines.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="GlobalSubroutines:Make">
+    <MSBuild Projects="GlobalSubroutines.dproj" Targets="Make" />
+  </Target>
+  <Target Name="Build">
+    <CallTarget Targets="TennisBookingSystem;GlobalSubroutines" />
+  </Target>
+  <Target Name="Clean">
+    <CallTarget Targets="TennisBookingSystem:Clean;GlobalSubroutines:Clean" />
+  </Target>
+  <Target Name="Make">
+    <CallTarget Targets="TennisBookingSystem:Make;GlobalSubroutines:Make" />
+  </Target>
+  <Import Condition="Exists('$(MSBuildBinPath)\Borland.Group.Targets')" Project="$(MSBuildBinPath)\Borland.Group.Targets" />
+</Project>
